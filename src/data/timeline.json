@@ -1,0 +1,22 @@
+{
+  "fps": 30,
+  "totalFrames": 1260,
+  "returnFrame": 930,
+  "scenes": [
+    { "id": "hook", "from": 0, "dur": 102 },
+    { "id": "setup", "from": 102, "dur": 282 },
+    { "id": "walk", "from": 384, "dur": 174 },
+    { "id": "cars", "from": 558, "dur": 174 },
+    { "id": "grip", "from": 732, "dur": 150 },
+    { "id": "payoff", "from": 882, "dur": 288 },
+    { "id": "epilogue", "from": 1170, "dur": 90 }
+  ],
+  "transitions": [
+    { "at": 102, "kind": "iris", "dur": 14 },
+    { "at": 384, "kind": "dissolve", "dur": 12 },
+    { "at": 558, "kind": "wipe", "dur": 12 },
+    { "at": 732, "kind": "dissolve", "dur": 12 },
+    { "at": 882, "kind": "iris", "dur": 12 },
+    { "at": 1170, "kind": "dissolve", "dur": 14 }
+  ]
+}
