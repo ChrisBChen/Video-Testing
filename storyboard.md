@@ -1,32 +1,30 @@
-# Storyboard — Episode 1
+# Storyboard: Episode 1, *What If You Jumped Through the Earth?*
 
-Grid: 90×160 world pixels (each = 12 screen px at 1080×1920). Floor line at y≈104 (≈1250 px); captions sit in y 1290–1446 px; the HUD sits at y≈200 px. Safe areas: nothing essential in the top ~12 % or bottom ~22 %.
+Look: clean 3D explainer. A cutaway Earth (a thick slice with the layers visible) lit like a studio set, soft shadows, glowing UI, a round faceless astronaut. The camera is a real 3D camera: it tracks the fall, swings around the center, and pulls out in one move to reveal the whole planet.
 
-## Phase 1 — The three hooks that were considered
+World units: Earth radius 12; astronaut ≈ 1.7 tall (not to scale: stated on screen). Safe areas: HUD at y≈150–400 px; captions y 1290–1446 px; nothing essential in the bottom 22 %.
 
-| | Hook | Verdict |
-|---|---|---|
-| A | **Button slam → the bench shoots away, the mug hangs in mid-air, Dr. Pip recoils the opposite way.** Instant, funny, and *physically exact*: no friction means equal-and-opposite recoil and a tablecloth-trick mug. The last scene loops back into this exact frame. | **Chosen** |
-| B | A car cruises through a stop sign while the driver frantically stomps the brake. Clear, but a "car out of control" cold open is generic. | Used later (0:19) |
-| C | Dr. Pip tries to walk and his legs whirl like a cartoon, going nowhere. Funny, but needs setup to read as a *consequence*. | Used later (0:13) |
+## Character
 
-## Phase 2 — Shot list
+**Pip**: a round little astronaut: white suit, orange accents, antenna, dark glossy visor with a glowing face (eyes, brows, mouth). Faceless in the Kurzgesagt / WALL-E tradition, so expression stays readable when he is tiny, spinning, or upside down. The earlier human "scientist" was dropped.
 
-| Time | Scene | What happens | Camera / transition |
+## Shots
+
+| Time | Shot | Action | Camera |
 |---|---|---|---|
-| 0:00–0:03.4 | **HOOK** (lab) | f0: fist on the red button, white flash, FRICTION OFF! slams in. The bench slides left; Dr. Pip slides right, windmilling, feet frozen, speed lines. The mug stays put, grows a worried face when the bench clears, falls, CRASH. Tagline "30 SECONDS / ZERO GRIP". | Impact shake. Iris-out into the explainer. |
-| 0:03.4–0:12.8 | **SETUP** (blueprint explainer) | A ×1000 zoom panel shows two bumpy surfaces mated tooth-to-tooth. A push only lifts the block up a flank — STUCK!, red force marks, heat sparks. Dr. Pip flips a lever: CLICK, bumps flatten, the block glides forever (tiny air drag), as does a real block on the bench. Rules card: ✗ SNAGGING, ✓ AIR DRAG. | Static camera; panel is the "camera". Dissolve out. |
-| 0:12.8–18.6 | **WALK** (sidewalk) | Coffee cart across the street. Dr. Pip tries to walk: a diagram pops up — YOU PUSH ←, NO PUSH (dashed arrow, crossed out). Legs accelerate into a blur with ghost frames, zero travel. He topples **straight down** (the feet can't push him), lies on the pavement still "swimming". A pigeon flaps by, smug: flying needs air, not friction. | Locked-off, so the lack of motion is the joke. Block-wipe out. |
-| 0:18.6–24.4 | **CARS** (road, then hill) | Shot 1: blue car floors it, wheels whirl, goes nowhere; a taxi glides past the stop sign, brake lights on, driver panicking; chips with no-symbols appear for brake / steering wheel / throttle. White-flash cut. Shot 2: three parked cars and Dr. Pip stand on a slope; they all start rolling at the same rate, the camera rides along the slope while the scenery scrolls. | Follow-cam on the hill. |
-| 0:24.4–29.4 | **GRIP** (lab) | A donut pinched in his fingers slides straight out and bounces. A shelf's screws spin out and drop, the shelf and its plant free-fall together and land (CRASH). A shoe close-up inset: the bow loosens and the lace slithers out (OOPS!). His glasses slide off his nose; he gropes squinting. | Small screen shake on the crash. |
-| 0:29.4–31.0 | **PAYOFF A** (street) | Everything is gliding: a spinning car, a hot-dog cart, Dr. Pip with arms out. HUD turns yellow at 0:28, "!" blinks. | Static. |
-| 0:31.0 | **WHAM** | Friction returns. White flash, 3-frame hit-stop, shockwave ring, WHAM!, slow-motion (¼ speed): the car trips and flips, the hot dogs fly on, Dr. Pip pitches forward and tumbles; HUD flips to FRICTION ON. | Hit-stop, shake, slow-mo then back to real time. |
-| 0:33.5–38.0 | **PAYOFF B** (blueprint) | Demo 1: a sled with a crate hits a grippy patch: the sled stops, the crate keeps going (BASE STOPS / TOP KEEPS GOING). Demo 2: Dr. Pip walks into a curb; his toe stops, his body keeps going: ghost-trail faceplant (FEET STOP / BODY GOES, OOF). | Flash cut in. |
-| 0:39–0:42 | **EPILOGUE** (lab, loop) | Back in the lab, bandaged and sooty, Dr. Pip sighs; the mug watches nervously. He trips on his own untied lace and face-plants onto the red button. White flash = frame 0. | Dissolve in; the flash loops the video. |
+| 0:00–1:36 | **Hook** | Pip stands at the edge of a hole (sign: DO NOT ENTER, traffic cones, trees). Title card. He looks in (worried), then crouches (smug). | Low 3/4 view → overhead tilt down the shaft |
+| 0:03.4 | **Jump** | Hop into the glass tube; yell face. | Locks onto Pip |
+| 0:04–0:09 | **Acceleration** | Flailing fall; light rings streak by; crust → mantle → outer core labels; speed climbs. | Follow-cam, 3/4 from the right, looking ahead of him |
+| 0:09–0:17 | **The center** | Eight arrows converge and cancel, "g = 0". Pip floats sideways, arms out, happy face; speed 28,458 km/h vs space station 27,600. The core glows. | Swings left and closes in; slow drift |
+| 0:17–0:22.5 | **Deceleration** | He slows, rotating head-down (feet toward the center), worried face, speed → 0. | Follow-cam, pulling out |
+| 0:22.5 | **Arrival** | Stops exactly at the surface: "OTHER SIDE REACHED 42:12". Pulse ring. | Eye-level at the far hole |
+| 0:24–0:25.3 | **Step out** | Hops onto the beach (upside down relative to the screen: that is "up" there), cheers. | Pulls back |
+| 0:25.3–0:29 | **Zoom-out reveal** | The whole Earth appears; pod A materialises around Pip at the bottom. | One continuous pull-out |
+| 0:29.3 / 0:32 | **More tunnels** | New York → LA tunnel (to scale), then an across-town tunnel (exaggerated). Colour-coded chips with live speeds. | Wide, slow orbit |
+| 0:32.6–0:37.4 | **The race** | Three glowing pods leave together; speeds differ wildly (28,458 / 8,790 / 22 km/h); all stop at the far end together. | Wide |
+| 0:37.8–0:42.5 | **Why** | Gravity arrows at each tunnel's end: strong, medium, gentle pull ↔ long, medium, short trip. "BIGGER PULL, LONGER TRIP = SAME TIME". | Slow push-in |
+| 0:42.5–0:44.5 | **Loop** | Fine print: real Earth ≈ 38 min. Camera flies back to the rim; Pip is standing at the hole again, frame-matched to frame 0. | Smooth fly-back |
 
-## Recurring motifs for the series
+## Physics driving the animation
 
-* The **HUD experiment clock** at the top of every episode.
-* The **mug** that knows what is about to happen.
-* **Dr. Pip** always ends up as the first victim of the hypothetical.
-* Every episode ends on a flash into its own opening frame.
+The motion is not hand-keyed. It uses the actual solution: along any straight frictionless tunnel through a uniform sphere, position = amplitude × cos(ωt) with ω = √(g/R) (period 84.4 min, one way 42.2 min). Video time maps to physical time through a smooth, variable-rate time-lapse (`fallMap` in `src/data/timeline.json`); every readout (clock, speed) and the speed-following sound come from the same function.

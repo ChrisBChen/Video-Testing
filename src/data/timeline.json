@@ -1,22 +1,50 @@
 {
   "fps": 30,
-  "totalFrames": 1260,
-  "returnFrame": 930,
-  "scenes": [
-    { "id": "hook", "from": 0, "dur": 102 },
-    { "id": "setup", "from": 102, "dur": 282 },
-    { "id": "walk", "from": 384, "dur": 174 },
-    { "id": "cars", "from": 558, "dur": 174 },
-    { "id": "grip", "from": 732, "dur": 150 },
-    { "id": "payoff", "from": 882, "dur": 288 },
-    { "id": "epilogue", "from": 1170, "dur": 90 }
-  ],
-  "transitions": [
-    { "at": 102, "kind": "iris", "dur": 14 },
-    { "at": 384, "kind": "dissolve", "dur": 12 },
-    { "at": 558, "kind": "wipe", "dur": 12 },
-    { "at": 732, "kind": "dissolve", "dur": 12 },
-    { "at": 882, "kind": "iris", "dur": 12 },
-    { "at": 1170, "kind": "dissolve", "dur": 14 }
-  ]
+  "totalSeconds": 44.5,
+  "lineStarts": {
+    "L1": 0.2,
+    "L2": 4.0,
+    "L3": 9.6,
+    "L4": 17.0,
+    "L5": 25.3,
+    "L6": 34.1
+  },
+  "events": {
+    "jump": 3.4,
+    "center": 11.0,
+    "arrival": 22.5,
+    "stepOut": 24.0,
+    "zoomOut": 25.3,
+    "chordB": 29.3,
+    "chordC": 32.0,
+    "raceStart": 32.6,
+    "raceEnd": 37.4,
+    "explain": 37.8,
+    "outro": 42.5
+  },
+  "fallMap": {
+    "s": [
+      3.4,
+      7.0,
+      10.0,
+      12.0,
+      15.0,
+      18.5,
+      22.5
+    ],
+    "tau": [
+      0,
+      560,
+      1090,
+      1440,
+      1880,
+      2300,
+      2532
+    ]
+  },
+  "earth": {
+    "radiusKm": 6371,
+    "g": 9.81,
+    "halfTripSeconds": 2532
+  }
 }

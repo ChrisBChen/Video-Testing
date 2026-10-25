@@ -1,49 +1,35 @@
 # Science notes
 
-## The hypothetical, stated precisely
+## The idealised model (stated on screen throughout)
 
-> **For exactly 30 seconds, every contact (dry) friction force between solid surfaces is zero**: static, kinetic and rolling, including the friction inside bearings and hinges, and the friction that holds knots, screws and nails.  
-> **Unchanged:** gravity, normal (contact) forces, air drag, fluid viscosity, and the elasticity and internal strength of materials.
+A uniform-density, non-rotating Earth with no air and no friction (a vacuum tube and a frictionless pod or magnetic levitation).
 
-This is the interpretation the video uses everywhere, and it is stated on screen (✗ SNAGGING, ✓ AIR DRAG). It is deliberately *not* "all dissipation switches off": if air drag and internal damping also vanished, a coasting car would never slow down even to air, a dropped ball would bounce forever, and sound would not decay, which is a different (and much less visual) video.
+* **Inside a uniform sphere, gravity is proportional to distance from the center:** g(r) = g₀·r/R. (Newton's shell theorem: the shell of Earth outside radius r pulls with zero net force.)
+* For a straight tunnel (a chord), the component of that pull *along the tunnel* is g₀/R times the distance from the tunnel's midpoint. That is a linear restoring force, i.e. **simple harmonic motion with ω = √(g₀/R)**, which does **not depend on the tunnel's length**.
+* Period T = 2π√(R/g₀) = 84.4 min, so one trip takes **T/2 = 42.2 min (42:12)** for any chord.
+* Top speed for a chord of half-length a is ω·a. For the center tunnel (a = R) that is √(g₀R) = **7.905 km/s = 28,458 km/h**, which is also the speed of a circular orbit skimming the surface. (The ISS moves at about 27,600 km/h, so "space station speed" is accurate.)
+* Chord speeds used in the race: New York–Los Angeles ≈ 3,940 km chord ⇒ half-length 1,968 km ⇒ **≈ 8,790 km/h**; a 10 km tunnel across town ⇒ **≈ 22 km/h** (and a 42-minute ride).
 
-Because normal forces still exist and are perpendicular to the surface, a frictionless contact can only push, never drag sideways. Almost every consequence follows from that one sentence.
+## What is true, what is simplified
 
-## Claim-by-claim
-
-| Moment | What we show | Why it is physically right |
-|---|---|---|
-| Hook: bench vs Dr. Pip | He shoves the bench; the bench slides one way and he slides the other. The mug stays where it is, then falls. | No horizontal ground force ⇒ horizontal momentum of (bench + person) is conserved; equal-and-opposite recoil. The mug is only coupled to the bench by friction, so the bench leaves from under it (the tablecloth trick, only without needing speed). The bench is drawn as the lighter body, so it moves faster, which is a modelling choice for a cartoon. |
-| Hook: standing still is fine | He is upright at frame 0 | On a level floor you need no friction to stand: gravity and the normal force balance. |
-| Setup: bumps | Mated teeth: the block must climb a flank to move; bumps flatten and the block glides. | Standard asperity picture. **Simplification:** modern tribology says friction also has an *adhesion* component (and deformation/ploughing), so the narration says "mostly". "×1000" is an illustrative magnification of micrometre-scale asperities. |
-| Setup: glide | The block keeps moving, slightly slowed by air. | Newton's first law; air drag still on. |
-| Walk | Legs whirl, no travel; he falls straight down. | Walking needs a horizontal ground reaction force (the "push forward" from pushing the ground back); with zero friction that force is zero. Leaning moves the centre of mass out past the feet, but with no horizontal force on the feet the centre of mass can only fall vertically, so he drops straight down and goes nowhere. |
-| Pigeon | Flies overhead | Flapping flight uses air, not ground friction (air drag is on). |
-| Car: brake / steer / throttle | Throttle: wheels spin, car stays; brake: it doesn't slow; steering: no turn | Tyre–road friction is the only horizontal force a wheel can transmit, and brake pads work by friction too. A car already moving keeps its velocity (minus air drag), and a wheel that was already spinning keeps spinning. |
-| Car: hill | Parked cars (and Dr. Pip) all slide down at the same rate; wheels are drawn **not rotating** | Along a slope with no friction a = g·sin θ for any mass (Galileo). Wheels are not turned by the road without friction, so they do not spin. |
-| Grip: donut | Pinched donut drops straight out | A pinch holds a weight only through friction; the normal force from the fingers is horizontal. |
-| Grip: screws | Screws turn out and drop | A threaded fastener under axial load acts as an inclined plane; it stays put only if it is *self-locking*, i.e. the thread's lead angle is less than the friction angle. With μ = 0 any pull on it unwinds it. (Shear loads are carried by the shank; real-life failures are mostly tension/vibration related, which is the case shown.) |
-| Grip: knots and laces | Bow loosens and the lace slithers out | A knot is held entirely by rope-on-rope friction (capstan effect). |
-| Grip: glasses | Slide down the nose and fall | They rest on the nose by friction. |
-| Return of friction | Everything that was sliding "grabs"; whatever is on top keeps going | Friction acts at the contact patch; the rest of the body keeps its momentum until forces transmit through it: the same mechanism as tripping on a kerb. A car sliding sideways whose tyres suddenly grip can **trip** and roll (tripped rollover). A sled-and-crate and a curb-trip show the same idea. |
-
-## Things deliberately simplified or left out
-
-* **The 30-second HUD clock** runs at 0.97× real time: it reaches 0:30 at video time 31.0 s, so the "friction returns" moment lands on the narration's beat. Everything else runs at normal playback speed except the deliberate quarter-speed slow-motion during the impact.
-* The video has the *whole world* switch friction off at once, but shows only a street and a lab. Things we do not show: shoes that cannot keep feet in them, bolts that fall out of bridges, planetary rotation (over 30 s a surface frictionlessly "leaving" the ground's motion is tiny), tools that cannot be used, wind-driven drift, and sound.
-* The return of friction is shown as instantaneous for every contact. How violent the real jolt would be depends on everything's velocity: here, the cars and Dr. Pip are the fast things, which is why they are the ones that suffer.
-* Hot dogs stopping a distance after the cart: real contact forces take a few milliseconds; the animation exaggerates/slows it for readability.
+| Claim in the video | Status |
+|---|---|
+| Fall takes 42 minutes; at the center gravity is zero and speed is maximum (28,000+ km/h) | True in the ideal model. Real Earth: **~38 min 11 s** through the center, with higher top speed, because the dense core pulls harder (Klotz, 2015). The video says so on screen at the end. |
+| Any straight tunnel takes the same 42 minutes | **Exactly true only for uniform density** (Cooper, 1966). In the real, non-uniform Earth, chord times vary between about 38 and 42 minutes, shorter trips being closer to 42. The narration says "in theory", the badge says "IDEAL EARTH", and the final note states the real figure. |
+| "No air, no friction" | Real-world blockers: air drag would cap your speed (a few hundred km/h) and you would stall near the center unless the tube is evacuated; wall friction; heat (the inner core is ≈5,000 °C), pressure, and molten rock. We hand-wave these as the premise ("ideal Earth"). |
+| Earth rotation | Ignored (Coriolis would push you into the wall of a polar tunnel). Listed in the badge. |
+| Arrival "stops exactly at the surface" | Energy conservation: with no losses you return to the starting height. Without grabbing something you would fall back in (not shown; Pip steps off the rim). |
+| Layers | Crust 0–35 km (exaggerated in the picture), mantle to ~2,900 km, outer core to ~5,150 km, inner core to 6,371 km: standard seismology values; the drawing is explicitly not to scale. |
+| The fall is "weightless" | Pip is shown in free fall (arms and legs flailing); the video does not claim he feels gravity-free only at the center. It says gravity *cancels to zero* at the center, which is true. |
+| Chord C (across town) is drawn ~100x longer than to scale | Flagged "not to scale". Its time/speed readouts are the true values for 10 km. |
+| Time-lapse | The HUD clock runs at a variable multiple of real time (about 60–180x) during the fall and about 530x in the race; the speedometer shows true physical speed. |
 
 ## References
 
-1. R. P. Feynman, R. B. Leighton, M. Sands, *The Feynman Lectures on Physics*, Vol. I, ch. 12 "Characteristics of Force" (friction as a surface phenomenon). https://www.feynmanlectures.caltech.edu/I_12.html
-2. F. P. Bowden and D. Tabor, *The Friction and Lubrication of Solids* (Oxford University Press, 1950/1964): asperity contact, adhesion and ploughing components of friction.
-3. B. N. J. Persson, *Sliding Friction: Physical Principles and Applications* (Springer, 2nd ed., 2000).
-4. HyperPhysics, "Friction". http://hyperphysics.phy-astr.gsu.edu/hbase/frict.html
-5. R. McNeill Alexander, *Principles of Animal Locomotion* (Princeton University Press, 2003): ground reaction forces in walking.
-6. R. G. Budynas and J. K. Nisbett, *Shigley's Mechanical Engineering Design*, power screws and self-locking threads (condition: tan λ ≤ μ).
-7. B. F. Bayman, "Theory of hitches", *American Journal of Physics* 45, 185 (1977): knots and hitches are held by friction (capstan equation).
-8. Galileo Galilei, *Discourses and Mathematical Demonstrations Relating to Two New Sciences* (1638): acceleration on an inclined plane independent of mass.
-9. "Tripped rollover" in vehicle-safety literature (e.g. NHTSA rollover research): a sliding vehicle whose tyres suddenly grip a surface can roll over.
+1. P. W. Cooper, "Through the Earth in Forty Minutes", *American Journal of Physics* **34**, 68 (1966): the uniform-density gravity tunnel; period independent of chord.
+2. A. R. Klotz, "The gravity tunnel in a non-uniform Earth", *American Journal of Physics* **83**, 231 (2015): 38 min 11 s through the center using the Preliminary Reference Earth Model; chord times between ~38 and 42 min. arXiv:1308.1342. https://arxiv.org/abs/1308.1342
+3. Newton's shell theorem (any text; e.g. Feynman Lectures on Physics Vol. I, ch. 13).
+4. A. M. Dziewonski and D. L. Anderson, "Preliminary reference Earth model", *Physics of the Earth and Planetary Interiors* **25**, 297 (1981): Earth's layered density profile.
+5. NASA, ISS orbital speed ≈ 7.66 km/s (≈ 27,600 km/h).
 
-Reference details were written from the author's knowledge of these standard sources and not re-checked online during production; check the editions before citing them in anything formal.
+Items 1, 2 and 4 were confirmed or cross-checked through a web search (Cooper 1966 and Klotz 2015 results, including the 38 min 11 s figure); numbers computed in the video come from the equations above.

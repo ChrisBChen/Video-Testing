@@ -1,66 +1,27 @@
+import tl from "../data/timeline.json";
+import { pchip } from "./math";
+
 /**
- * Deterministic physics helpers. Everything is a pure function of time, so any frame
- * can be rendered independently and renders are bit-for-bit reproducible.
+ * The physics of the gravity tunnel (idealised, uniform-density Earth, no air, no rotation, no friction).
+ * Inside the Earth g(r) = g0 * r / R, so motion along ANY straight tunnel is simple harmonic with
+ * omega = sqrt(g0 / R), independent of the tunnel's length. One-way time = pi / omega ~ 42.2 min.
  */
-export function rng(seed: number) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
+export const R_KM = tl.earth.radiusKm;
+export const G0 = tl.earth.g;
+export const OMEGA = Math.sqrt(G0 / (R_KM * 1000));                 // rad/s  (1.24e-3)
+export const HALF_TRIP = Math.PI / OMEGA;                            // s      (2532)
+export const V_MAX_KMH = (OMEGA * R_KM * 1000 * 3.6);                // km/h   (28,458)
 
-/** Constant-acceleration motion. */
-export const kin = (p0: number, v0: number, a: number, t: number) => p0 + v0 * t + 0.5 * a * t * t;
+/** Video time (s) -> physical time (s) for the fall: a deliberate, variable-rate time-lapse. */
+export const fallTau = pchip(tl.fallMap.s, tl.fallMap.tau);
 
-/** Drop with bounces on a floor. y grows downward. Returns {y, vy}. */
-export function bounceY(y0: number, vy0: number, g: number, floor: number, e: number, t: number) {
-  let y = y0, vy = vy0, rem = t;
-  for (let i = 0; i < 12; i++) {
-    const disc = vy * vy + 2 * g * (floor - y);
-    const tHit = (-vy + Math.sqrt(Math.max(0, disc))) / g;
-    if (tHit >= rem) return { y: y + vy * rem + 0.5 * g * rem * rem, vy: vy + g * rem };
-    rem -= tHit;
-    vy = -(vy + g * tHit) * e;
-    y = floor;
-    if (Math.abs(vy) < 6) return { y: floor, vy: 0 };
-  }
-  return { y: floor, vy: 0 };
-}
-
-export interface Bit { x0: number; y0: number; vx: number; vy: number; size: number; spin: number; color: number }
-/** Burst of debris fragments; positions are analytic in t (seconds). */
-export function burst(seed: number, n: number, speed: number, up = 0.7): Bit[] {
-  const rn = rng(seed);
-  return Array.from({ length: n }, () => {
-    const a = rn() * Math.PI * 2, s = speed * (0.35 + rn() * 0.65);
-    return { x0: 0, y0: 0, vx: Math.cos(a) * s, vy: Math.sin(a) * s - speed * up, size: 1 + Math.floor(rn() * 2.4), spin: rn(), color: Math.floor(rn() * 3) };
-  });
-}
-export const bitPos = (b: Bit, t: number, g: number, floor = Infinity) => {
-  const y = b.y0 + b.vy * t + 0.5 * g * t * t;
-  return { x: b.x0 + b.vx * t, y: Math.min(y, floor) };
+/** Position along a tunnel as a fraction of its half-length, starting at one end: +1 -> -1. */
+export const slide = (tau: number) => Math.cos(OMEGA * tau);
+/** Speed as a fraction of that tunnel's top speed. */
+export const speedFrac = (tau: number) => Math.abs(Math.sin(OMEGA * tau));
+export const fmtClock = (tauSec: number) => {
+  const t = Math.min(HALF_TRIP, Math.max(0, tauSec));
+  const m = Math.floor(t / 60), s = Math.floor(t % 60);
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 };
-
-/** Deterministic camera shake offset (integer pixels), decaying after `t0`. */
-export function shake(t: number, amp: number, decay = 6, seed = 1) {
-  if (t < 0) return { x: 0, y: 0 };
-  const k = amp * Math.exp(-decay * t);
-  return { x: Math.round(Math.sin(t * 91 + seed) * k), y: Math.round(Math.cos(t * 77 + seed * 2) * k) };
-}
-
-/** Two-bone inverse kinematics; returns the knee/elbow point. `bend` = +1/-1 picks the side. */
-export function ik2(hx: number, hy: number, fx: number, fy: number, a: number, b: number, bend: number) {
-  let dx = fx - hx, dy = fy - hy;
-  let d = Math.hypot(dx, dy);
-  const maxD = a + b - 0.001;
-  if (d > maxD) { fx = hx + (dx / d) * maxD; fy = hy + (dy / d) * maxD; dx = fx - hx; dy = fy - hy; d = maxD; }
-  if (d < 0.001) d = 0.001;
-  const x = (d * d + a * a - b * b) / (2 * d);
-  const h = Math.sqrt(Math.max(0, a * a - x * x));
-  const ux = dx / d, uy = dy / d;
-  return { kx: hx + ux * x - uy * h * bend, ky: hy + uy * x + ux * h * bend, fx, fy };
-}
+export const kmh = (v: number) => Math.round(v).toLocaleString("en-US");

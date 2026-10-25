@@ -1,22 +1,27 @@
 {
-  "name": "science-hypotheticals",
+  "name": "science-what-ifs",
   "version": "1.0.0",
   "private": true,
-  "description": "Pixel-art science explainers rendered with Remotion. Episode 1: What if all friction disappeared for 30 seconds?",
+  "description": "3D \"what if\" science explainers rendered with Remotion + three.js. Episode 1: What if you jumped through the Earth?",
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "audio": "python3 tools/build_audio.py",
     "voice": "bash tools/fetch_voice.sh",
-    "render": "remotion render src/index.ts Friction final_video.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p --concurrency=4",
-    "still": "remotion still src/index.ts Friction out/still.png --frame=0",
+    "render": "remotion render src/index.ts Tunnel final_video.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p",
+    "still": "remotion still src/index.ts Tunnel out/still.png --frame=0",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.3.0",
     "@fontsource/press-start-2p": "^5.0.0",
+    "@react-three/fiber": "^8.17.10",
     "@remotion/cli": "4.0.538",
+    "@remotion/three": "^4.0.538",
+    "@types/three": "^0.169.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "remotion": "4.0.538"
+    "remotion": "4.0.538",
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
