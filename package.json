@@ -7,7 +7,7 @@
     "studio": "remotion studio src/index.ts",
     "audio": "python3 tools/build_audio.py",
     "voice": "bash tools/fetch_voice.sh",
-    "render": "remotion render src/index.ts Tunnel final_video.mp4 --codec=h264 --crf=15 --pixel-format=yuv420p",
+    "render": "remotion render src/index.ts Tunnel final_video.mp4 --codec=h264 --crf=15 --pixel-format=yuv420p --audio-bitrate=256k",
     "still": "remotion still src/index.ts Tunnel out/still.png --frame=0",
     "typecheck": "tsc --noEmit"
   },

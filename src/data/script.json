@@ -2,11 +2,30 @@
   "voice": "af_heart",
   "speed": 1.06,
   "lines": [
-    { "id": "L1", "text": "What if you jumped into a hole... that goes straight through the center of the Earth?" },
-    { "id": "L2", "text": "No air. No friction. Just gravity, pulling you down faster... and faster." },
-    { "id": "L3", "text": "At the center, gravity cancels to zero. But you're still moving twenty-eight thousand kilometers an hour... space station speed." },
-    { "id": "L4", "text": "Then gravity slows you down. And exactly forty-two minutes after you jumped... you stop, right at the surface, on the other side of the planet." },
-    { "id": "L5", "text": "Here's the weird part. The tunnel doesn't have to go through the center. New York to Los Angeles? Forty-two minutes. Across town? Forty-two minutes." },
-    { "id": "L6", "text": "In theory, any straight tunnel, any length, takes the same time. Shorter tunnels are shallower, so gravity pulls more gently, and it all cancels out." }
-  ]
+    {
+      "id": "L1",
+      "text": "What if you jumped into a hole... that goes straight through the center of the Earth?"
+    },
+    {
+      "id": "L2",
+      "text": "No air. No friction. Just gravity, pulling you down faster... and faster."
+    },
+    {
+      "id": "L3",
+      "text": "At the center, gravity cancels to zero. But you're still moving twenty-eight thousand kilometers an hour... space station speed."
+    },
+    {
+      "id": "L4",
+      "text": "Then gravity slows you down. And exactly forty-two minutes after you jumped... you stop, right at the surface, on the other side of the planet."
+    },
+    {
+      "id": "L5",
+      "text": "Here's the weird part. The tunnel doesn't have to go through the center. New York to Los Angeles? Forty-two minutes. Across town? Forty-two minutes."
+    },
+    {
+      "id": "L6",
+      "text": "In theory, any straight tunnel, any length, takes the same time. Shorter tunnels are shallower, so gravity pulls more gently, and it all cancels out."
+    }
+  ],
+  "engine": "chatterbox"
 }

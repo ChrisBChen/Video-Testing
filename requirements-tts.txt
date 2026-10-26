@@ -1,0 +1,8 @@
+# Narration environment (Python 3.11): neural TTS + speech-recognition QC.
+# Install CPU PyTorch wheels, e.g.:
+#   uv venv --python 3.11 .venv-tts
+#   uv pip install --python .venv-tts/bin/python --index-strategy unsafe-best-match --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-tts.txt
+chatterbox-tts
+faster-whisper
+soundfile
+setuptools<81

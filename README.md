@@ -10,7 +10,7 @@ The protagonist is **Pip**, a round faceless astronaut who expresses himself thr
 | `script.md` | Why this topic, three hook options, final narration and on-screen text, sound design |
 | `storyboard.md` | Shot list, camera moves, the physics behind the animation |
 | `science_notes.md` | The idealised model, every claim and its caveats, references |
-| `voice_samples/` | The same two lines in 7 different Kokoro voices; swap the voice in `src/data/script.json` |
+| `voice_samples/` | Chatterbox takes of three lines, and the same opening in several Kokoro voices (the fallback engine) |
 
 ## Run it
 
@@ -26,14 +26,21 @@ If Remotion cannot download its own browser, set `REMOTION_BROWSER=/path/to/chro
 
 ### Rebuild the voice, captions, SFX and music
 
+Narration uses **Chatterbox** (Resemble AI, MIT licence), a large expressive neural TTS model, run on CPU in a Python 3.11 environment. Each take is transcribed back with **Whisper** to check it was spoken correctly and to get word-exact timestamps for the captions.
+
 ```bash
+uv venv --python 3.11 .venv-tts
+uv pip install --python .venv-tts/bin/python --index-strategy unsafe-best-match \
+    --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-tts.txt
+.venv-tts/bin/python tools/tts_chatterbox.py     # 2 takes per line (~15 min on 4 cores)
+.venv-tts/bin/python tools/pick_takes.py         # Whisper QC: word-error-rate, pick one consistent take, word timestamps
 python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
-npm run voice                       # downloads the Kokoro-82M model (~350 MB) into audio_cache/
-python3 tools/build_audio.py        # or:  VOICE=am_michael python3 tools/build_audio.py
-python3 tools/voice_samples.py      # re-render the voice comparison clips
+python3 tools/build_audio.py                     # voice + SFX + music + captions -> public/audio/mix.wav
 ```
 
-`build_audio.py` synthesises narration (Kokoro-82M, lightly EQ'd and compressed), pins word timings to the real pauses in the speech to write `src/data/captions.json`, synthesises the sound effects (including a hum whose pitch follows the astronaut's real speed), generates and ducks the music, and masters to −14 LUFS.
+`ENGINE=kokoro python3 tools/build_audio.py` uses the small Kokoro-82M model instead (no PyTorch needed; `npm run voice` downloads it).
+
+`build_audio.py` aligns the narration to the picture: key words are anchored to the frames where they happen on screen (`anchors` in `src/data/timeline.json`: "center", "stop", "New York", "same time"). It levels the voice, calibrates the effects and music against it, ducks the music under speech, and finishes with a fast transparent peak limiter plus a **two-pass linear loudness master (about −16 LUFS, −4 dBFS peak)**. The headroom is deliberate: AAC (what every platform re-encodes to) overshoots by 1–3 dB, which clips on decode if the master is hot. There is no soft saturation anywhere in the chain.
 
 ## How it is built
 
@@ -53,7 +60,7 @@ src/
   data/timeline.json              event times, line start times, fall time-lapse map  <- retime here
   data/script.json                narration lines, voice, speed
   data/captions.json              generated word timings
-tools/                            build_audio.py, voice_samples.py, fetch_voice.sh, stills.sh, contact.py
+tools/                            build_audio.py, tts_chatterbox.py, pick_takes.py, voice_samples.py, fetch_voice.sh, stills.sh, contact.py
 ```
 
 * **Deterministic.** No wall-clock and no `Math.random` at render time. The physics is closed-form (`position = A·cos(ωt)`), so any frame renders independently.
@@ -63,4 +70,4 @@ tools/                            build_audio.py, voice_samples.py, fetch_voice.
 
 ## Verified properties of `final_video.mp4`
 
-Checked with `ffprobe`/`ffmpeg` (see the final report for the exact numbers): 1080×1920, 30 fps, 44.5 s, H.264 + AAC, loudness ≈ −14 LUFS, no black or frozen sections, and the last frame matches the first.
+Checked with `ffprobe`/`ffmpeg`: 1080×1920, 30 fps, 44.5 s, H.264 + AAC 256 kbps; integrated loudness −15.9 LUFS; **decoded audio peaks at −1.4 dBFS with no clipped samples** (checked on the MP4 itself, after AAC encoding); no black or frozen sections; last frame matches the first. Narration: every take transcribed back by Whisper with 0 % word error; key words land within ~0.1 s of the on-screen events they describe.

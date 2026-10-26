@@ -79,7 +79,7 @@ export const Hud: React.FC<{ s: number }> = ({ s }) => {
           <div style={{ fontSize: 34, fontWeight: 700, color: "#fff", textShadow: "0 3px 0 rgba(10,14,46,0.9)" }}>pulled equally from every side</div>
         </div>) : null; })()}
       {/* space-station comparison */}
-      {(() => { const k = pop(s, E.center + 1.7, E.center + 5.7); return k > 0.01 ? (
+      {(() => { const k = pop(s, E.center + 2.2, E.center + 5.9); return k > 0.01 ? (
         <div style={{ position: "absolute", left: 60, width: 960, top: 330, opacity: Math.min(1, k), transform: `translateY(${(1 - Math.min(1, k)) * 30}px)` }}>
           <div style={{ ...glass, padding: "16px 28px" }}>
             {[["PIP, AT THE CENTER", V_MAX_KMH, "#ffb02e"], ["SPACE STATION", 27600, "#9bb3ff"]].map(([n, v, c]) => (
@@ -125,7 +125,7 @@ export const Hud: React.FC<{ s: number }> = ({ s }) => {
         </div>) : null; })()}
       {/* fine print: this is the IDEAL Earth */}
       {s > E.jump && (
-        <div style={{ position: "absolute", left: 60, right: 60, top: 1222, textAlign: "center", opacity: 0.92 }}>
+        <div style={{ position: "absolute", left: 60, right: 60, top: 1222, textAlign: "center", opacity: 0.92 * (1 - smooth(inv(43.4, 44.1, s))) }}>
           <span style={{ ...glass, display: "inline-block", fontSize: 25, fontWeight: 600, padding: "6px 22px", borderRadius: 18, background: "rgba(10,14,46,0.7)", border: "2px solid rgba(255,255,255,0.25)" }}>
             {finalNote ? "REAL EARTH: ~38 MIN THROUGH THE CENTER (DENSE CORE)" : "IDEAL EARTH: uniform density · no air · no friction · no rotation"}
           </span>

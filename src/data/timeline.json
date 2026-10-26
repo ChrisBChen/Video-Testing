@@ -46,5 +46,23 @@
     "radiusKm": 6371,
     "g": 9.81,
     "halfTripSeconds": 2532
+  },
+  "anchors": {
+    "L3": [
+      "center",
+      10.9
+    ],
+    "L4": [
+      "stop",
+      22.3
+    ],
+    "L5": [
+      "New",
+      29.15
+    ],
+    "L6": [
+      "same",
+      36.9
+    ]
   }
 }

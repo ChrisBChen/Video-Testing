@@ -1,7 +1,7 @@
 # Script: "What If You Jumped Through the Earth?"
 
 Episode 1 of the *Pip* series · 44.5 s · 1080×1920 · 30 fps.
-Voice: Kokoro-82M neural TTS, voice `af_heart` (speed 1.06), lightly EQ'd and compressed. Captions are word-timed to the real speech.
+Voice: Chatterbox neural TTS (default voice, exaggeration 0.5), checked line-by-line with Whisper (0% word error on every take). Captions are timed from Whisper's word timestamps, and key words are anchored to the on-screen events they describe.
 
 ## Why this topic (and not friction)
 
@@ -41,7 +41,7 @@ The first attempt ("What if friction disappeared?") had a muddy takeaway: lots o
 
 ## Sound
 
-* Narration: Kokoro-82M.
+* Narration: Chatterbox, lightly high-passed and compressed; every line leveled to the same speech loudness.
 * Music: an original, generated score (D minor, 96 bpm: pad, pluck arpeggio, sub bass, soft kick), which drops out into a weightless pad at the center of the Earth and builds into the race.
 * SFX: generated. The tube hum's pitch follows Pip's actual speed; light rings tick as he passes them; chimes for arrival and the three-way finish; a riser into the loop.
-* Mastered to about −14 LUFS.
+* Mix: voice at −20 dBFS RMS, score at −32 dBFS and ducked under speech, effects calibrated to −15 dBFS peaks; two-pass linear loudness master to −15 LUFS, −1.5 dB true peak.
