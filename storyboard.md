@@ -1,6 +1,6 @@
 # Storyboard: Episode 1, *What If You Jumped Through the Earth?*
 
-Look: clean 3D explainer. A cutaway Earth (a thick slice with the layers visible) lit like a studio set, soft shadows, glowing UI, a round faceless astronaut. The camera is a real 3D camera: it tracks the fall, swings around the center, and pulls out in one move to reveal the whole planet.
+Look: a clean 3D explainer. The planet is a real hemisphere (procedural continents, clouds, an atmosphere glow) with the other half cut away to show the layers. Studio lighting with reflections, soft shadows, glossy glass tubes, a 3D starfield, glowing HUD, and a round faceless astronaut. The camera is a real 3D camera: it starts on a close-up of Pip, pulls back to show the planet, tracks the fall, orbits the center, and pulls out in one move to reveal the whole Earth.
 
 World units: Earth radius 12; astronaut ≈ 1.7 tall (not to scale: stated on screen). Safe areas: HUD at y≈150–400 px; captions y 1290–1446 px; nothing essential in the bottom 22 %.
 
@@ -12,7 +12,7 @@ World units: Earth radius 12; astronaut ≈ 1.7 tall (not to scale: stated on sc
 
 | Time | Shot | Action | Camera |
 |---|---|---|---|
-| 0:00–1:36 | **Hook** | Pip stands at the edge of a hole (sign: DO NOT ENTER, traffic cones, trees). Title card. He looks in (worried), then crouches (smug). | Low 3/4 view → overhead tilt down the shaft |
+| 0:00–0:03.4 | **Hook** | Close-up on Pip (smug) standing on a little planet next to a hole (sign: DO NOT ENTER, cones, trees). Title card. The camera swings back to reveal the curved planet; he looks in (worried), then crouches (smug). | Close-up → pull-back → overhead tilt down the shaft |
 | 0:03.4 | **Jump** | Hop into the glass tube; yell face. | Locks onto Pip |
 | 0:04–0:09 | **Acceleration** | Flailing fall; light rings streak by; crust → mantle → outer core labels; speed climbs. | Follow-cam, 3/4 from the right, looking ahead of him |
 | 0:09–0:17 | **The center** | Eight arrows converge and cancel, "g = 0". Pip floats sideways, arms out, happy face; speed 28,458 km/h vs space station 27,600. The core glows. | Swings left and closes in; slow drift |
@@ -21,9 +21,9 @@ World units: Earth radius 12; astronaut ≈ 1.7 tall (not to scale: stated on sc
 | 0:24–0:25.3 | **Step out** | Hops onto the beach (upside down relative to the screen: that is "up" there), cheers. | Pulls back |
 | 0:25.3–0:29 | **Zoom-out reveal** | The whole Earth appears; pod A materialises around Pip at the bottom. | One continuous pull-out |
 | 0:29.3 / 0:32 | **More tunnels** | New York → LA tunnel (to scale), then an across-town tunnel (exaggerated). Colour-coded chips with live speeds. | Wide, slow orbit |
-| 0:32.6–0:37.4 | **The race** | Three glowing pods leave together; speeds differ wildly (28,458 / 8,790 / 22 km/h); all stop at the far end together. | Wide |
+| 0:32.6–0:37.4 | **The race** | Three glowing pods leave together; speeds differ wildly (28,458 / 8,790 / 22 km/h); all stop at the far end together. | Wide orbit, with a one-second cut-in on the glowing core as the centre pod flies through it |
 | 0:37.8–0:42.5 | **Why** | Gravity arrows at each tunnel's end: strong, medium, gentle pull ↔ long, medium, short trip. "BIGGER PULL, LONGER TRIP = SAME TIME". | Slow push-in |
-| 0:42.5–0:44.5 | **Loop** | Fine print: real Earth ≈ 38 min. Camera flies back to the rim; Pip is standing at the hole again, frame-matched to frame 0. | Smooth fly-back |
+| 0:42.5–0:44.5 | **Loop** | Fine print: real Earth ≈ 38 min. Camera flies back in to the close-up of Pip standing at the hole again, frame-matched to frame 0. | Smooth fly-in |
 
 ## Physics driving the animation
 

@@ -373,6 +373,12 @@ for ry in ringy:
     for i in idx:
         t = ts[i]
         if EV["jump"] < t < EV["arrival"]: place(t - 0.01, "ringpass", 0.35 * (0.2 + spd[i]))
+# layer boundaries (crust / mantle / outer core / inner core): a short scan sweep each time he crosses one
+for rb in (0.955 * 12, 0.546 * 12, 0.191 * 12):
+    for sgn in (1, -1):
+        idx = np.where((yy[:-1] - sgn * rb) * (yy[1:] - sgn * rb) < 0)[0]
+        for i in idx:
+            if EV["jump"] < ts[i] < EV["arrival"]: place(ts[i] - 0.02, "swoosh", 0.32)
 # race: three tones, one per pod, pitch follows each pod's speed; a soft tick for every elapsed minute-of-clock
 rt = race_tau(ts); ron = ((ts >= EV["raceStart"]) & (ts <= EV["raceEnd"] + 0.2)).astype(float); rs = np.abs(np.sin(OMEGA * rt))
 for base, amp, span in ((220.0, 0.05, 520), (330.0, 0.04, 330), (495.0, 0.03, 160)):

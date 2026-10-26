@@ -1,6 +1,7 @@
 import React from "react";
 import "@react-three/fiber";
 import * as THREE from "three";
+import { useEnv } from "./env";
 
 /**
  * Pip: a round little astronaut, the recurring protagonist of the series.
@@ -18,7 +19,8 @@ export interface PipPose {
   face?: Face; look?: [number, number]; blink?: number; squash?: number; antenna?: number;
 }
 const C = { suit: "#f4f6ff", shade: "#cfd6f0", orange: "#ff8a2a", dark: "#171c45", glow: "#7ff3ff", pack: "#dde3f7", warn: "#ff5d73" };
-const S = (color: string, rough = 0.5, extra: Partial<THREE.MeshStandardMaterialParameters> = {}) => <meshStandardMaterial color={color} roughness={rough} metalness={0.03} {...extra} />;
+let ENV: THREE.Texture | null = null;
+const S = (color: string, rough = 0.5, extra: Partial<THREE.MeshStandardMaterialParameters> = {}) => <meshStandardMaterial color={color} roughness={rough} metalness={0.03} envMap={ENV} envMapIntensity={0.75} {...extra} />;
 const Glow = (c: string = C.glow, k = 1.6) => <meshStandardMaterial color={c} emissive={c} emissiveIntensity={k} roughness={0.4} toneMapped={false} />;
 
 const Limb: React.FC<{ r: number; len: number; color: string; end?: React.ReactNode }> = ({ r, len, color, end }) => (
@@ -86,11 +88,12 @@ const Mouth: React.FC<{ face: Face }> = ({ face }) => {
   return <mesh position={[0, y + 0.045, 0]} rotation={[0, 0, Math.PI]} scale={face === "smug" ? [1.1, 0.7, 1] : [1.1, 1, 1]}><torusGeometry args={[0.075, 0.017, 8, 18, Math.PI]} />{Glow()}</mesh>;
 };
 
-export const Pip: React.FC<{ pose?: PipPose; position?: [number, number, number]; rotation?: [number, number, number]; scale?: number }> = ({ pose = {}, position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }) => {
+export const Pip: React.FC<{ pose?: PipPose; position?: [number, number, number]; rotation?: [number, number, number]; quaternion?: [number, number, number, number]; scale?: number }> = ({ pose = {}, position = [0, 0, 0], rotation = [0, 0, 0], quaternion, scale = 1 }) => {
   const p = { armLx: 0, armLz: 0, elbL: 0, armRx: 0, armRz: 0, elbR: 0, legLx: 0, legLz: 0, kneeL: 0, legRx: 0, legRz: 0, kneeR: 0, lean: 0, twist: 0, headX: 0, headY: 0, headZ: 0, face: "calm" as Face, look: [0, 0] as [number, number], blink: 0, squash: 1, antenna: 0, ...pose };
+  ENV = useEnv();
   const sq = p.squash, st = 1 / Math.sqrt(sq);
   return (
-    <group position={position} rotation={rotation} scale={scale}>
+    <group position={position} {...(quaternion ? { quaternion } : { rotation })} scale={scale}>
       <group scale={[st, sq, st]}>
         <Leg side={1} lx={p.legRx} lz={p.legRz} kn={p.kneeR} />
         <Leg side={-1} lx={p.legLx} lz={p.legLz} kn={p.kneeL} />
@@ -111,9 +114,9 @@ export const Pip: React.FC<{ pose?: PipPose; position?: [number, number, number]
           {/* helmet */}
           <group position={[0, 0.79, 0]} rotation={[p.headX, p.headY, p.headZ]}>
             <mesh position={[0, -0.4, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.24, 0.05, 10, 28]} />{S(C.orange, 0.45)}</mesh>
-            <mesh castShadow><sphereGeometry args={[0.5, 40, 30]} />{S(C.suit, 0.38)}</mesh>
+            <mesh castShadow><sphereGeometry args={[0.5, 48, 36]} /><meshStandardMaterial color={C.suit} roughness={0.22} metalness={0.05} envMap={ENV} envMapIntensity={0.9} /></mesh>
             {/* visor: glossy dark glass */}
-            <mesh position={[0, 0.0, 0.2]} scale={[1, 0.8, 0.78]} castShadow><sphereGeometry args={[0.4, 36, 28]} /><meshStandardMaterial color={C.dark} roughness={0.12} metalness={0.15} /></mesh>
+            <mesh position={[0, 0.0, 0.2]} scale={[1, 0.8, 0.78]} castShadow><sphereGeometry args={[0.4, 36, 28]} /><meshStandardMaterial color="#0c1030" roughness={0.04} metalness={0.55} envMap={ENV} envMapIntensity={1.6} /></mesh>
             <mesh position={[-0.13, 0.17, 0.47]} rotation={[0, 0.1, 0.4]} scale={[0.1, 0.035, 0.012]}><sphereGeometry args={[1, 14, 10]} /><meshBasicMaterial color="#ffffff" transparent opacity={0.55} /></mesh>
             {/* the face */}
             <group position={[0, 0.0, 0.5]}><Eyes face={p.face} look={p.look} blink={p.blink} /><Brows face={p.face} /><Mouth face={p.face} /></group>

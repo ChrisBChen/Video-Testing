@@ -5,7 +5,7 @@ import { clamp, inv, smooth, spring, easeOut } from "../engine/math";
 import { project } from "../engine/project";
 
 const F = "Poppins, system-ui, sans-serif";
-const glass: React.CSSProperties = { background: "linear-gradient(180deg, rgba(14,22,66,0.82), rgba(10,14,46,0.82))", border: "3px solid rgba(127,243,255,0.55)", borderRadius: 30, boxShadow: "0 10px 40px rgba(0,0,0,0.35), inset 0 0 30px rgba(127,243,255,0.08)", color: "#fff", fontFamily: F };
+const glass: React.CSSProperties = { background: "linear-gradient(180deg, rgba(16,26,76,0.68), rgba(8,12,40,0.7))", border: "2px solid rgba(127,243,255,0.42)", borderRadius: 28, boxShadow: "0 12px 44px rgba(0,0,0,0.38), inset 0 0 34px rgba(127,243,255,0.07)", color: "#fff", fontFamily: F };
 const Panel: React.FC<{ x: number; y: number; w: number; label: string; value: string; color: string; sub?: string; h?: number }> = ({ x, y, w, label, value, color, sub, h = 128 }) => (
   <div style={{ ...glass, position: "absolute", left: x, top: y, width: w, height: h, padding: "14px 26px", boxSizing: "border-box" }}>
     <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: 3, color: "rgba(255,255,255,0.65)" }}>{label}</div>
@@ -26,7 +26,7 @@ export const Hud: React.FC<{ s: number }> = ({ s }) => {
   const tau = s >= E.zoomOut + 2.4 ? raceTau(s) : s >= E.jump ? (s >= E.arrival ? HALF_TRIP : tauFall(s)) : 0;
   const speed = falling ? V_MAX_KMH * Math.abs(Math.sin(OMEGA * tau)) : 0;
   const hudIn = smooth(inv(E.jump - 0.3, E.jump + 0.3, s)) * (1 - smooth(inv(E.outro - 0.2, E.outro + 0.6, s)));
-  const titleK = s < E.jump ? 1 * (1 - clamp((s - 2.9) / 0.4)) : 0;
+  const titleK = s < E.jump ? 1 * (1 - clamp((s - 1.9) / 0.4)) : 0;
   const showLabels = s > E.jump + 0.5 && s < E.arrival + 0.5;
   const finalNote = s > E.outro - 1.0;
 

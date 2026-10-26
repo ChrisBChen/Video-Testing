@@ -17,7 +17,7 @@ The protagonist is **Pip**, a round faceless astronaut who expresses himself thr
 ```bash
 npm install
 npm run studio        # live preview and scrubbing (Remotion Studio)
-npm run render        # -> final_video.mp4 (about 25 min on 4 CPU cores without a GPU)
+npm run render        # -> final_video.mp4 (about 55 min on 4 CPU cores without a GPU; much faster with one)
 npm run typecheck
 ```
 
@@ -42,12 +42,13 @@ src/
   index.ts, Root.tsx, Video.tsx   Remotion entry; one three.js canvas + HTML HUD/captions + audio
   story.ts                        THE DIRECTOR: Pip's state, the tunnels/pods, and the camera as functions of time
   World.tsx                       the 3D scene (lights, Earth, tubes, pods, arrows), driven by story.ts
-  art/Earth.tsx, art/Props.tsx    cutaway Earth (procedural textures), glass tubes, pods, arrows, halos
+  art/Earth.tsx, art/Props.tsx    hemisphere planet (procedural continents/clouds), glass tubes, pods, arrows, halos, stars
   engine/
     pip.tsx                       Pip: pose-driven 3D character (joints, expressions)
     physics.ts                    the gravity-tunnel equations (omega, half-trip, speeds, time-lapse map)
     math.ts                       easing, springs, monotone cubic keyframes, seeded RNG
     project.ts                    world-to-screen projection so HTML labels track 3D points
+    env.ts                        studio reflection map shared by the glossy materials
   components/Hud.tsx, Captions.tsx
   data/timeline.json              event times, line start times, fall time-lapse map  <- retime here
   data/script.json                narration lines, voice, speed
